@@ -5,7 +5,7 @@
 // The underscores don't mean anything - you can have a layer called STUFF or any other name.
 // Layer names don't all need to be of the same length, obviously, and you can also skip them
 // entirely and just use numbers.
-#define _COLEMAK_LINUX 0
+#define _COLEMAK 0
 #define _LOWER 2
 #define _RAISE 3
 #define _ADJUST 16
@@ -15,7 +15,7 @@
 #define KC_LWBK LT(_LOWER,KC_BSPC)
 
 enum custom_keycodes {
-  COLEMAK_LINUX = SAFE_RANGE,
+  COLEMAK = SAFE_RANGE,
   LOWER,
   RAISE,
   ADJUST
@@ -56,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |Adjust| Ctrl | GUI  | Alt  |Lower |Space |Space |Raise | Left | Down |  Up  |Right |
  * `-----------------------------------------------------------------------------------'
  */
-[_COLEMAK_LINUX] = LAYOUT( \
+[_COLEMAK] = LAYOUT( \
   KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC, \
   KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,    KC_J,    KC_L,    KC_U,    KC_Y, KC_SCLN, KC_DEL, \
   KC_LWBK, KC_A,   KC_R,    KC_S,    KC_T,    KC_D,    KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    KC_QUOT, \
@@ -137,9 +137,9 @@ void persistent_default_layer_set(uint16_t default_layer) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-    case COLEMAK_LINUX:
+    case COLEMAK:
       if (record->event.pressed) {
-        persistent_default_layer_set(1UL<<_COLEMAK_LINUX);
+        persistent_default_layer_set(1UL<<_COLEMAK);
       }
       return false;
       break;
