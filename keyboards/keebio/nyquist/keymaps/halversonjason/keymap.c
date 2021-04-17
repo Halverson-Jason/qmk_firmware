@@ -30,10 +30,7 @@ enum {
 enum {
   TD_ESC_CAPS = 0,
   TD_MIN_UNDER = 1,
-  TD_SCOL_COL = 2,
-  TD_COMM_LT = 3,
-  TD_DOT_GT = 4,
-  TD_SLSH_BSLS = 5
+  TD_SLSH_BSLS = 2
 };
 
 // Tap Dance definitions
@@ -41,9 +38,6 @@ qk_tap_dance_action_t tap_dance_actions[] = {
     // Tap once for Escape, twice for Caps Lock
     [TD_ESC_CAPS] = ACTION_TAP_DANCE_DOUBLE(KC_LSFT, KC_CAPS),
     [TD_MIN_UNDER] = ACTION_TAP_DANCE_DOUBLE(KC_KP_MINUS, LSFT(KC_MINUS)),
-    [TD_SCOL_COL] = ACTION_TAP_DANCE_DOUBLE(KC_SCLN, LSFT(KC_SCLN)),
-    [TD_COMM_LT] = ACTION_TAP_DANCE_DOUBLE(KC_COMM, LSFT(KC_COMM)),
-    [TD_DOT_GT] = ACTION_TAP_DANCE_DOUBLE(KC_DOT, LSFT(KC_DOT)),
     [TD_SLSH_BSLS] = ACTION_TAP_DANCE_DOUBLE(KC_SLSH, KC_BSLS),
 };
 
@@ -64,9 +58,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_COLEMAK_LINUX] = LAYOUT( \
   KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC, \
-  KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,    KC_J,    KC_L,    KC_U,    KC_Y, TD(TD_SCOL_COL), KC_DEL, \
+  KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,    KC_J,    KC_L,    KC_U,    KC_Y, KC_SCLN, KC_DEL, \
   KC_LWBK, KC_A,   KC_R,    KC_S,    KC_T,    KC_D,    KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    KC_QUOT, \
-  TD(TD_ESC_CAPS), KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_K,    KC_M, TD(TD_COMM_LT), TD(TD_DOT_GT),  TD(TD_SLSH_BSLS), KC_ENT , \
+  TD(TD_ESC_CAPS), KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_K,    KC_M, KC_COMM, KC_DOT,  TD(TD_SLSH_BSLS), KC_ENT , \
   ADJUST,  KC_LCTL, KC_LGUI, KC_LALT, LOWER,   KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT \
 ),
 
